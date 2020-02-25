@@ -1,5 +1,21 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="UTF-8">
-    <title>Password Generator</title>
+h1 {
+  text-align: center;
+  color: #46B9B1;
+  font-family: 'Slabo 27px', ;
+}
+
+.content {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  background-color: #b9464e;
+  padding: 30px;
+  width: 100%;
+}
+
+#display {
+  width: 100%
+}
+
+#slider {
+width: 100%;
+}
