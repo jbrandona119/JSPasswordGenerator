@@ -10,45 +10,51 @@
   <link href="https://fonts.googleapis.com/css?family=Slabo+27px&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
-  <!-- <link href="https://fonts.googleapis.com/css?family=Slabo+27px&display=swap" rel="stylesheet"> -->
-  <script src="script.js"></script>
 
 
   <body>
 
-    <h1>Password Generator</h1>
-
     <div class="container">
-
-        <div class="row">
-
-            <div class="col-lg-8 col-sm-12 mx-auto">
-
-                <div class="content">
-                    <h2>Random Password Generator</h2>
-                    <br>
-                    <input type="text" id="display">
-                    <br />
-                    <input type="range" min="0" max="128" name="slider" id="slider">
-                    <br />
-                    <button onclick="generate()">Generate</button>
-                    <button onclick="copyPassword()">Copy to clipboard</button>
-                    <div id="length"></div>
+        <h2>Password Generator</h2>
+        <div class="result-container">
+            <span id="result"></span>
+            <button class="btn" id="clipboard" title="Press here to copy password">Copy</button> 
+        </div>
+        <div class="settings">
+            <div class="setting">
+                <label>Password length</label>
+                <input type="number" id="length" min="4" max="128" value="20" />
+                    </div>
+                    <div class="setting">
+                        <label>Include lowercase letters</label>
+                        <input type="checkbox" id="lowercase" checked />
+                    </div>
+                    <div class="setting">
+                        <label>Include uppercase letters</label>
+                        <input type="checkbox" id="uppercase" checked />
+                    </div>
+                    <div class="setting">
+                        <label>Include numbers</label>
+                        <input type="checkbox" id="numbers" checked />
+                    </div>
+                    <div class="setting">
+                        <label>Include symbols</label>
+                        <input type ="checkbox" id="symbols" checked />
+                    </div>
                 </div>
-                <div class="previous_passwords">
+                    <button class="btn btn-large" id="generate">
+                        Generate password
+                    </button>
+                
+                </div>
+                <!-- <div class="previous_passwords">
                     <b>Previously Generated Passwords</b>
                     <br />
-                    <div id="lastNums"></div>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
+                    <div id="lastNums"></div> -->
 
 
 
     </body>
+    <script src="script.js"></script>
     </html>
 

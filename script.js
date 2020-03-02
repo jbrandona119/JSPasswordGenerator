@@ -1,43 +1,47 @@
-//generate random password
+// DOM elements
+const resultEl = document.getElementById('result');
+const lengthEl = document.getElementById('length');
+const uppercaseEl = document.getElementById('uppercase');
+const lowercaseEl = document.getElementById('lowercase');
+const numbersEl = document.getElementById('numbers');
+const symbolsEl = document.getElementById('symbols');
+const generateEl = document.getElementById('generate');
+const clipboard = document.getElementById('clipboard');
 
-function generate() {
-  //set pw length and details
+const randomFunc = {
+  lower: getRandomLower,
+  upper: getRandomUpper,
+  number: getRandomNumber,
+  symbol: getRandomSymbol
+};
 
-  let complexity = document.getElementById("slider").value;
+generateEl.addEventListener('click', () => {
+  const length = +lengthEL.value;
+  const hasLower = lowercaseEl.checked;
+  const hasUpper = uppercaseEl.checked;
+  const hasNumber = numbersEl.checked;
+  const hasSymbol = symbolsEl.checked;
 
-  // password values
-  let values =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()_+";
+  console.log(hasLower, hasUpper, hasNumber, hasSymbol);
+});
 
-  let password = "";
-
-  //create for loop to choose characters for password
-
-  for (var i = 0; i <= complexity; i++) {
-    password =
-      password +
-      values.charAt(Math.floor(Math.random() * Math.floor(values.length - 1)));
-  }
-
-  //add password to textbox area
-  document.getElementById("display").value = password;
-  //add password to previously generated passwords section
-  document.getElementById("lastNums").innerHTML += password + "<br />";
-  //set default length display of 25
-  document.getElementById("length").innerHTML = "Length: 25";
-  //function to set length based on slider position
-  document.getElementById("slider").oninput = function(){
-
-    if(document.getElementById("slider").value > 0) {
-        document.getElementById("length").innerHTML = "Length: " + document.getElementById("slider").value
-    } else {
-        document.getElementById("length").innerHTML = "Length: 1";
-    }
-  }
+// generate password functions
+function getRandomLower() {
+  return String.fromCharCode(Math.floor(Math.random * 26) + 97);
 }
-  //function to copy password to clipboard
-  function copyPassword(){
-    document.getElementById("display").select();
-    document.execCommand("Copy");
-    alert("Password has been copied to clipboard");
-  }
+
+function getRandomUpper() {
+  return String.fromCharCode(Math.floor(Math.random * 26) + 65);
+}
+function getRandomNumber() {
+  return String.fromCharCode(Math.floor(Math.random * 10) + 48);
+}
+function getRandomSymbol() {
+  const symbols = '!@#$%^&*()_+{}[]=<>/?,./';
+  return symbols[Math.floor(Math.random() * symbols.length)];
+}
+
+
+
+  // //add password to previously generated passwords section
+  // document.getElementById("lastNums").innerHTML += password + "<br />";
